@@ -16,8 +16,19 @@ const firstBucket = new aws.s3.Bucket("first-bucket-ftr", {
   },
 });
 
+const secondBucket = new aws.s3.Bucket("second-bucket-ftr", {
+  bucket: "second-bucket-ftr",
+  acl: "private",
+  tags: {
+    IAC: "true",
+  },
+});
+
 export const ecrName = ecr.name;
 export const ecrRepositoryUrl = ecr.repositoryUrl;
 
 export const bucketName = firstBucket.id;
 export const bucketArn = firstBucket.arn;
+
+export const secondBucketName = secondBucket.id;
+export const secondBucketArn = secondBucket.arn;
